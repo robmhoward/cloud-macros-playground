@@ -1,0 +1,20 @@
+{
+  "name": "cloud-macros",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Rob Howard"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/OfficeDev/cloud-macros",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "adal-angular": "experimental"
+  }
+}
