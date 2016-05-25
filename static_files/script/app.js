@@ -2,8 +2,8 @@ var cloudMacrosApp = angular.module("cloudMacrosApp", ['ngRoute', 'AdalAngular']
 
 var rootUrl = document.location;
 
-Office.initialize = function (reason) {
-};
+//Office.initialize = function (reason) {
+//};
 
 cloudMacrosApp.config(['$routeProvider', '$httpProvider', 'adalAuthenticationServiceProvider', function ($routeProvider, $httpProvider, adalProvider) {
 	$routeProvider
@@ -58,6 +58,11 @@ cloudMacrosApp.factory("scriptsFactory", ['$http', function ($http) {
 
 	return factory;
 }]);
+
+cloudMacrosApp.controller("SplashController", function($scope, scriptsFactory) {
+	
+});
+
 
 cloudMacrosApp.controller("SamplesController", function($scope, $routeParams, snippetFactory) {
 	$scope.samples = [{ name: "Loading..." }];
