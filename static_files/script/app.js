@@ -37,6 +37,11 @@ cloudMacrosApp.config(['$routeProvider', '$httpProvider', 'adalAuthenticationSer
 				controller: 'GlobalScriptsController',
 				templateUrl: 'partials/scriptsBrowser.html'
 			})
+		.when('/help',
+			{
+				controller: 'HelpController',
+				templateUrl: 'partials/help.html'
+			})
 		.when('/codeEditor/:scriptId',
 			{
 				controller: 'CodeEditorController',
@@ -60,6 +65,34 @@ cloudMacrosApp.factory("scriptsFactory", ['$http', function ($http) {
 }]);
 
 cloudMacrosApp.controller("SplashController", function($scope, scriptsFactory) {
+	
+});
+
+cloudMacrosApp.controller("HomeController", function($scope, scriptsFactory) {
+	
+});
+
+cloudMacrosApp.controller("FavoritesController", function($scope, scriptsFactory) {
+	
+});
+
+cloudMacrosApp.controller("MyScriptsController", function($scope, scriptsFactory) {
+	
+});
+
+cloudMacrosApp.controller("OrgScriptsController", function($scope, scriptsFactory) {
+	
+});
+
+cloudMacrosApp.controller("GlobalScriptsController", function($scope, scriptsFactory) {
+	
+});
+
+cloudMacrosApp.controller("HelpController", function($scope, scriptsFactory) {
+	
+});
+
+cloudMacrosApp.controller("CodeEditorController", function($scope, $routeParams, scriptsFactory) {
 	
 });
 
