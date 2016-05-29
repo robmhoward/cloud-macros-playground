@@ -1,4 +1,6 @@
-var cloudMacrosApp = angular.module("cloudMacrosApp", ['ngRoute', 'AdalAngular']);
+'use strict';
+
+var cloudMacrosApp = angular.module("cloudMacrosApp", ['ngRoute', 'AdalAngular', 'officeuifabric.core', 'officeuifabric.components.navbar']);
 
 var rootUrl = document.location;
 
@@ -60,9 +62,41 @@ cloudMacrosApp.factory("scriptsFactory", ['$http', function ($http) {
 	factory.getScript = function(app, filename) {
 		return $http.get(app + '-snippets/' + filename);
 	};
+	
+	factory.getMyScripts = function() {
+		return $http.get('api/me/scripts');
+	}
+	
+	factory.getFavoriteScripts = function() {
+		return $http.get('api/me/favorites');
+	}
+	
+	factory.getPublicScripts = function() {
+		return $http.get('api/scripts');
+	}
+	
+	factory.getOrgScripts = function() {
+		return $http.get('api/org/scripts');
+	}
 
 	return factory;
 }]);
+
+cloudMacrosApp.controller("NavController", function($scope, $location) {
+	
+	$scope.topNavLinks = [
+		{label: "Home", route: "/home"},
+		{label: "Favorites", route: "/favorites"},
+		{label: "My Scripts", route: "/myScripts"},
+		{label: "Organization Scripts", route: "/orgScripts"},
+		{label: "Public Scripts", route: "/globalScripts"},
+		{label: "Help", route: "/help"}
+	];
+	
+	$scope.select = function(route) {
+		$location.path(route);
+	}
+});
 
 cloudMacrosApp.controller("SplashController", function($scope, scriptsFactory) {
 	
@@ -73,19 +107,39 @@ cloudMacrosApp.controller("HomeController", function($scope, scriptsFactory) {
 });
 
 cloudMacrosApp.controller("FavoritesController", function($scope, scriptsFactory) {
+	$scope.viewTitle = "My Favorites";
+	$scope.scripts = [{title: "Loading..."}];
 	
+	scriptsFactory.getFavoriteScripts().then(function (response) {
+		$scope.scripts = response.data;
+	});	
 });
 
 cloudMacrosApp.controller("MyScriptsController", function($scope, scriptsFactory) {
+	$scope.viewTitle = "My Scripts";
+	$scope.scripts = [{title: "Loading..."}];
 	
+	scriptsFactory.getMyScripts().then(function (response) {
+		$scope.scripts = response.data;
+	});
 });
 
 cloudMacrosApp.controller("OrgScriptsController", function($scope, scriptsFactory) {
+	$scope.viewTitle = "Organization Scripts";
+	$scope.scripts = [{title: "Loading..."}];
 	
+	scriptsFactory.getOrgScripts().then(function (response) {
+		$scope.scripts = response.data;
+	});
 });
 
 cloudMacrosApp.controller("GlobalScriptsController", function($scope, scriptsFactory) {
+	$scope.viewTitle = "Public Scripts";
+	$scope.scripts = [{title: "Loading..."}];
 	
+	scriptsFactory.getPublicScripts().then(function (response) {
+		$scope.scripts = response.data;
+	});	
 });
 
 cloudMacrosApp.controller("HelpController", function($scope, scriptsFactory) {

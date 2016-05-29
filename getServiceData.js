@@ -15,34 +15,130 @@ function getMyProfile() {
 
 function getMyFavoriteScripts() {
     return [
-        createSampleScript("1", "Script One", "alert('script one');"),
-        createSampleScript("2", "Script Two", "alert('script two');"),
-        createSampleScript("3", "Script Three", "alert('script three');")
-    ];
+		{
+			title: "One",
+			description: "This is item one",
+			author: "Rob Howard",
+			modifiedDate: "7/4/2016",
+			isNew: true,
+			isUnseen: false,
+			isFavorite: true
+		},
+		{
+			title: "Two",
+			description: "This is item two",
+			author: "Richard DiZerega",
+			modifiedDate: "4/11/2016",
+			isNew: false,
+			isUnseen: true,
+            isFavorite: false
+		},
+		{
+			title: "Three",
+			description: "This is item three",
+			author: "Santa Claus",
+			modifiedDate: "5/19/2016",
+			isNew: false,
+			isUnseen: false,
+            isFavorite: false
+		}
+	];
 }
 
 function getMyScripts() {
     return [
-        createSampleScript("1", "Script One", "alert('script one');"),
-        createSampleScript("2", "Script Two", "alert('script two');"),
-        createSampleScript("3", "Script Three", "alert('script three');")
-    ];
+		{
+			title: "One",
+			description: "This is item one",
+			author: "Rob Howard",
+			modifiedDate: "7/4/2016",
+			isNew: true,
+			isUnseen: false,
+			isFavorite: true
+		},
+		{
+			title: "Two",
+			description: "This is item two",
+			author: "Richard DiZerega",
+			modifiedDate: "4/11/2016",
+			isNew: false,
+			isUnseen: true,
+            isFavorite: false
+		},
+		{
+			title: "Three",
+			description: "This is item three",
+			author: "Santa Claus",
+			modifiedDate: "5/19/2016",
+			isNew: false,
+			isUnseen: false,
+            isFavorite: false
+		}
+	];
 }
 
 function getOrganizationScripts() {
     return [
-        createSampleScript("4", "Script Four", "alert('script four');"),
-        createSampleScript("5", "Script Five", "alert('script five');"),
-        createSampleScript("6", "Script Six", "alert('script six');")
-    ];
+		{
+			title: "One",
+			description: "This is item one",
+			author: "Rob Howard",
+			modifiedDate: "7/4/2016",
+			isNew: true,
+			isUnseen: false,
+			isFavorite: true
+		},
+		{
+			title: "Two",
+			description: "This is item two",
+			author: "Richard DiZerega",
+			modifiedDate: "4/11/2016",
+			isNew: false,
+			isUnseen: true,
+            isFavorite: false
+		},
+		{
+			title: "Three",
+			description: "This is item three",
+			author: "Santa Claus",
+			modifiedDate: "5/19/2016",
+			isNew: false,
+			isUnseen: false,
+            isFavorite: false
+		}
+	];
 }
 
 function getGlobalScripts() {
     return [
-        createSampleScript("7", "Script Seven", "alert('script seven');"),
-        createSampleScript("8", "Script Eight", "alert('script eight');"),
-        createSampleScript("9", "Script Nine", "alert('script nine');")
-    ];
+		{
+			title: "One",
+			description: "This is item one",
+			author: "Rob Howard",
+			modifiedDate: "7/4/2016",
+			isNew: true,
+			isUnseen: false,
+			isFavorite: true
+		},
+		{
+			title: "Two",
+			description: "This is item two",
+			author: "Richard DiZerega",
+			modifiedDate: "4/11/2016",
+			isNew: false,
+			isUnseen: true,
+            isFavorite: false
+		},
+		{
+			title: "Three",
+			description: "This is item three",
+			author: "Santa Claus",
+			modifiedDate: "5/19/2016",
+			isNew: false,
+			isUnseen: false,
+            isFavorite: false
+		}
+	];
 }
 
 function createSampleScript(id, name, script) {

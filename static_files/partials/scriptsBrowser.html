@@ -1,1 +1,36 @@
-Scripts Browser
+<uif-breadcrumb>
+    <uif-breadcrumb-link ng-href="#/home'">Home</uif-breadcrumb-link>
+    <uif-breadcrumb-link>{{viewTitle}}</uif-breadcrumb-link>
+</uif-breadcrumb>
+      <p>
+        <span class="ms-font-m">Navigated URL:{{navigationUrl}}</span>
+      </p>
+<uif-command-bar uif-search-term="searchValue">
+    <uif-command-bar-search></uif-command-bar-search>
+    <uif-command-bar-main uif-show-overflow='true'>
+        <uif-command-bar-item ng-click="goToLink('codeEditor/new')">
+            <uif-icon uif-type="plus"></uif-icon>
+            <span>New</span>
+        </uif-command-bar-item>
+    </uif-command-bar-main>
+</uif-command-bar>
+<uif-list uif-item-select-mode="single" uif-selected-items="selectedScript">
+  <uif-list-item ng-repeat="script in scripts" uif-unread="{{script.isNew}}" uif-unseen="{{script.isUnseen}}" uif-item="script">
+    <uif-list-item-primary-text>{{script.title}}</uif-list-item-primary-text>
+    <uif-list-item-secondary-text>{{script.author}}</uif-list-item-secondary-text>
+    <uif-list-item-tertiary-text>{{script.description}}</uif-list-item-tertiary-text>
+    <uif-list-item-meta-text>{{script.modifiedDate | date : 'shortTime'}}</uif-list-item-meta-text>
+    <uif-list-item-selection-target></uif-list-item-selection-target>
+    <uif-list-item-actions>
+      <uif-list-item-action ng-click="edit(script)">
+        <uif-icon uif-type="editBox"></uif-icon>
+      </uif-list-item-action>
+      <uif-list-item-action ng-click="delete(script)">
+        <uif-icon uif-type="trash"></uif-icon>
+      </uif-list-item-action>
+      <uif-list-item-action ng-click="favorite(script)">
+        <uif-icon uif-type="{{script.isFavorite ? 'heart' : 'heartEmpty'}}"></uif-icon>
+      </uif-list-item-action>
+    </uif-list-item-actions>
+  </uif-list-item>
+</uif-list>
